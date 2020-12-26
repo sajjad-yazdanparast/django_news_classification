@@ -1,13 +1,5 @@
 import pickle 
 from parsivar import * 
-import numpy as np
-
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.pipeline import Pipeline
-
-from sklearn.neighbors import KNeighborsClassifier
-
 
 
 stop_words = pickle.load(open('./data/hazm_stopwords.pkl','rb'))
