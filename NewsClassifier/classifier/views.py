@@ -1,3 +1,3 @@
 from django.shortcuts import render
-from model import inteface
+from classifier_model import inteface
 # Create your views here.
