@@ -17,5 +17,11 @@ def main():
     execute_from_command_line(sys.argv)
 
 
+
+
+
 if __name__ == '__main__':
+    from classifier_model import preprocessing
     main()
+    
+  
