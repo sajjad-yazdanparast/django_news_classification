@@ -1,12 +1,15 @@
 import pickle 
 from parsivar import * 
+from django.conf import settings  
+import os 
 
 
-stop_words = pickle.load(open('./data/hazm_stopwords.pkl','rb'))
+path = os.path.join(settings.BASE_DIR, 'classifier_model/data/hazm_stopwords.pkl')
+stop_words = pickle.load(open(path,'rb'))
 stop_words = stop_words.split(',')
 
 
-def preprocessing(text) :
+def preprocessing( text) :
     normalizer = Normalizer()
     tokenizer = Tokenizer()
     stemmer = FindStems()
@@ -22,8 +25,6 @@ def preprocessing(text) :
 
     return ' '.join(new_sents)
 
-
-
 class ModelInterface :
 
     LABELS = {
@@ -31,10 +32,12 @@ class ModelInterface :
         5 : 'اقتصادی',
         7 : 'اجتماعی',
     }
+    
+
 
     def __init__(self) :
 
-        self.pipline= pickle.load(open('./data/model_parsivar.pkl','rb'))
+        self.pipline= pickle.load(open(os.path.join(settings.BASE_DIR, 'classifier_model/data/model_parsivar.pkl'),'rb'))
     
 
     def predict(self,text) :
@@ -42,4 +45,3 @@ class ModelInterface :
 
 
 
-interface = ModelInterface()
