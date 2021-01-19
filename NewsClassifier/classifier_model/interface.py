@@ -5,9 +5,6 @@ import os
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "NewsClassifier.settings")
 
-# import django
-# django.setup()
-
 path = os.path.join(settings.BASE_DIR, 'classifier_model/data/hazm_stopwords.pkl')
 stop_words = pickle.load(open(path,'rb'))
 stop_words = stop_words.split(',')
